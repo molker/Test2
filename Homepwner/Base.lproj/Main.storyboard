@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -71,6 +72,47 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="h8k-bk-yEy" customClass="ItemCell" customModule="Homepwner" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="132" width="375" height="65"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h8k-bk-yEy" id="HjJ-l4-OKR">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSr-Lz-YV1">
+                                            <rect key="frame" x="8" y="8" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTS-Tt-FlP">
+                                            <rect key="frame" x="325" y="22" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1y-Wf-Elg">
+                                            <rect key="frame" x="8" y="43.5" width="31" height="14.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" red="0.54635945431472077" green="0.54635945431472077" blue="0.54635945431472077" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="mSr-Lz-YV1" firstAttribute="top" secondItem="HjJ-l4-OKR" secondAttribute="topMargin" id="3fA-JP-7Kd"/>
+                                        <constraint firstItem="mSr-Lz-YV1" firstAttribute="leading" secondItem="HjJ-l4-OKR" secondAttribute="leadingMargin" id="DF1-Z6-o8O"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="NTS-Tt-FlP" secondAttribute="trailing" id="NKd-H6-2iz"/>
+                                        <constraint firstItem="NTS-Tt-FlP" firstAttribute="centerY" secondItem="HjJ-l4-OKR" secondAttribute="centerY" id="TUY-uD-YSM"/>
+                                        <constraint firstItem="N1y-Wf-Elg" firstAttribute="leading" secondItem="mSr-Lz-YV1" secondAttribute="leading" id="cf7-NP-1rq"/>
+                                        <constraint firstAttribute="bottom" secondItem="N1y-Wf-Elg" secondAttribute="bottom" constant="6" id="fHk-sC-rq0"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="mSr-Lz-YV1" id="TWV-uW-X8V"/>
+                                    <outlet property="serialNumberLabel" destination="N1y-Wf-Elg" id="BBb-Lo-ohg"/>
+                                    <outlet property="valueLabel" destination="NTS-Tt-FlP" id="ULv-oY-c6t"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="3GG-4X-odS" id="8Zw-Wt-LRN"/>
@@ -80,7 +122,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qs1-1B-Vyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="158" y="106"/>
+            <point key="canvasLocation" x="157.59999999999999" y="105.69715142428787"/>
         </scene>
     </scenes>
 </document>
