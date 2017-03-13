@@ -18,8 +18,8 @@ class ItemsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //Create an instance of UITableViewCell, with default appearance 
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableViewCell")
+        //Get a new or recycled cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         
         //Set the text on the cell with the dsecription of the item
         //that is at the nth index of items, where n = row this cell
@@ -30,6 +30,17 @@ class ItemsViewController: UITableViewController {
         cell.detailTextLabel?.text = "$\(item.valueInDollars)"
         
         return cell
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //Get the height of the status bar
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        
+        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = insets
+        tableView.scrollIndicatorInsets = insets
     }
     
 }
