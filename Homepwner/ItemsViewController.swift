@@ -68,6 +68,7 @@ class ItemsViewController: UITableViewController {
         
         return cell
     }
+        
     
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCellEditingStyle,
@@ -107,9 +108,9 @@ class ItemsViewController: UITableViewController {
         itemStore.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //Get the height of the status bar
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         
