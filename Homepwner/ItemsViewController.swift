@@ -44,31 +44,51 @@ class ItemsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView,
                             numberOfRowsInSection section: Int) -> Int {
-        return itemStore.allItems.count
+        return itemStore.allItems.count + 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //Get a new or recycled cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
         
-        //Set the text on the cell with the dsecription of the item
-        //that is at the nth index of items, where n = row this cell
-        //will appear in on the tableview
-        let item = itemStore.allItems[indexPath.row]
+        if indexPath.row < itemStore.allItems.count {
+            //Get a new or recycled cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
         
-        //Configure the cell with the Item
-        cell.nameLabel.text = item.name
-        cell.serialNumberLabel.text = item.serialNumber
-        cell.valueLabel.text = "$\(item.valueInDollars)"
-        if item.valueInDollars >= 50 {
-            cell.valueLabel.textColor = UIColor.red
+            //Set the text on the cell with the dsecription of the item
+            //that is at the nth index of items, where n = row this cell
+            //will appear in on the tableview
+            let item = itemStore.allItems[indexPath.row]
+        
+            //Configure the cell with the Item
+            cell.nameLabel.text = item.name
+            cell.serialNumberLabel.text = item.serialNumber
+            cell.valueLabel.text = "$\(item.valueInDollars)"
+            if item.valueInDollars >= 50 {
+                cell.valueLabel.textColor = UIColor.red
+            } else {
+                cell.valueLabel.textColor = UIColor.green
+            }
+            return cell
         } else {
-            cell.valueLabel.textColor = UIColor.green
+            let cell = UITableViewCell(style: .value1, reuseIdentifier: "LastCell")
+            cell.textLabel?.text = "No More Items!"
+            return cell
         }
-        
-        return cell
     }
-        
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.row >= itemStore.allItems.count {
+            return false
+        }
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath,
+                            toProposedIndexPath proprosedDestinationIndexPath: IndexPath) -> IndexPath {
+        if proprosedDestinationIndexPath.row >= itemStore.allItems.count {
+            return sourceIndexPath
+        }
+        return proprosedDestinationIndexPath
+    }
     
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCellEditingStyle,
