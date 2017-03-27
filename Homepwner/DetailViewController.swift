@@ -15,6 +15,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var valueField: BorderedTextField!
     @IBOutlet var dateLabel: UILabel!
     
+    @IBAction func changeDate(_ sender: UIButton) {
+        
+    }
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
@@ -70,4 +73,16 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         formatter.timeStyle = .none
         return formatter
     }()
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //if the triggered segue is the "showItem" segue
+        switch segue.identifier {
+        case "changeDate"?:
+            //Get the item associated with this row and pass it along
+            let dateViewController = segue.destination as! DateViewController
+            dateViewController.item = item
+        default:
+            preconditionFailure("Unexpected segue identifier.")
+        }
+    }
 }

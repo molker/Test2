@@ -12,13 +12,13 @@ class Item: NSObject {
     var name: String
     var valueInDollars: Int
     var serialNumber: String?
-    let dateCreated: Date
+    var dateCreated: Date
     
-    init(name: String, serialNumber: String?, valueInDollars: Int) {
+    init(name: String, serialNumber: String?, valueInDollars: Int, dateCreated: Date) {
         self.name = name
         self.valueInDollars = valueInDollars
         self.serialNumber = serialNumber
-        self.dateCreated = Date()
+        self.dateCreated = dateCreated
         
         super.init()
     }
@@ -40,9 +40,10 @@ class Item: NSObject {
             
             self.init(name: randomName,
                       serialNumber: randomSerialNumber,
-                      valueInDollars: randomValue)
+                      valueInDollars: randomValue,
+                      dateCreated: Date())
         } else {
-            self.init(name: "", serialNumber: nil, valueInDollars: 0)
+            self.init(name: "", serialNumber: nil, valueInDollars: 0, dateCreated: Date())
         }
     }
 }
