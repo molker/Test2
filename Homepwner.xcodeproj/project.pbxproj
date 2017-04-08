@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		860803E01E8C1E490065E683 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860803DF1E8C1E490065E683 /* ImageStore.swift */; };
 		862FFBC61E77079900B13CC4 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FFBC51E77079900B13CC4 /* ItemCell.swift */; };
 		8677D9081E8974DC00893E9D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8677D9071E8974DC00893E9D /* DetailViewController.swift */; };
 		8677D90A1E897DE000893E9D /* BorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8677D9091E897DE000893E9D /* BorderedTextField.swift */; };
@@ -14,13 +15,13 @@
 		86B00F301E761D8C005D5670 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B00F2F1E761D8C005D5670 /* AppDelegate.swift */; };
 		86B00F351E761D8D005D5670 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86B00F331E761D8D005D5670 /* Main.storyboard */; };
 		86B00F371E761D8D005D5670 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86B00F361E761D8D005D5670 /* Assets.xcassets */; };
-		86B00F3A1E761D8D005D5670 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86B00F381E761D8D005D5670 /* LaunchScreen.storyboard */; };
 		86B00F421E761DDC005D5670 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B00F411E761DDC005D5670 /* ItemsViewController.swift */; };
 		86B00F441E761F67005D5670 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B00F431E761F67005D5670 /* Item.swift */; };
 		86B00F461E7621C5005D5670 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B00F451E7621C5005D5670 /* ItemStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		860803DF1E8C1E490065E683 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageStore.swift; path = ../ImageStore.swift; sourceTree = "<group>"; };
 		862FFBC51E77079900B13CC4 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		8677D9071E8974DC00893E9D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8677D9091E897DE000893E9D /* BorderedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedTextField.swift; sourceTree = "<group>"; };
@@ -29,7 +30,6 @@
 		86B00F2F1E761D8C005D5670 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86B00F341E761D8D005D5670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		86B00F361E761D8D005D5670 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		86B00F391E761D8D005D5670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86B00F3B1E761D8D005D5670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86B00F411E761DDC005D5670 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		86B00F431E761F67005D5670 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -72,12 +72,12 @@
 				8677D9071E8974DC00893E9D /* DetailViewController.swift */,
 				8677D9091E897DE000893E9D /* BorderedTextField.swift */,
 				86B00F361E761D8D005D5670 /* Assets.xcassets */,
-				86B00F381E761D8D005D5670 /* LaunchScreen.storyboard */,
 				86B00F3B1E761D8D005D5670 /* Info.plist */,
 				86B00F411E761DDC005D5670 /* ItemsViewController.swift */,
 				862FFBC51E77079900B13CC4 /* ItemCell.swift */,
 				86B00F431E761F67005D5670 /* Item.swift */,
 				86B00F451E7621C5005D5670 /* ItemStore.swift */,
+				860803DF1E8C1E490065E683 /* ImageStore.swift */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -114,6 +114,7 @@
 				TargetAttributes = {
 					86B00F2B1E761D8C005D5670 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 3V9523999D;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -141,7 +142,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86B00F3A1E761D8D005D5670 /* LaunchScreen.storyboard in Resources */,
 				86B00F371E761D8D005D5670 /* Assets.xcassets in Resources */,
 				86B00F351E761D8D005D5670 /* Main.storyboard in Resources */,
 			);
@@ -159,6 +159,7 @@
 				86B00F421E761DDC005D5670 /* ItemsViewController.swift in Sources */,
 				86B00F441E761F67005D5670 /* Item.swift in Sources */,
 				8677D9081E8974DC00893E9D /* DetailViewController.swift in Sources */,
+				860803E01E8C1E490065E683 /* ImageStore.swift in Sources */,
 				86B00F461E7621C5005D5670 /* ItemStore.swift in Sources */,
 				8677D90A1E897DE000893E9D /* BorderedTextField.swift in Sources */,
 				86B00F301E761D8C005D5670 /* AppDelegate.swift in Sources */,
@@ -174,14 +175,6 @@
 				86B00F341E761D8D005D5670 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		86B00F381E761D8D005D5670 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				86B00F391E761D8D005D5670 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -284,6 +277,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3V9523999D;
 				INFOPLIST_FILE = Homepwner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.molker.Homepwner;
@@ -296,6 +290,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3V9523999D;
 				INFOPLIST_FILE = Homepwner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.molker.Homepwner;

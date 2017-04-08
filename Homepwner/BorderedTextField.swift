@@ -18,7 +18,7 @@ class BorderedTextField: UITextField {
     
     override func resignFirstResponder() -> Bool {
         super.resignFirstResponder()
-        borderStyle = .none
+        borderStyle = .roundedRect
         return true
     }
 }
