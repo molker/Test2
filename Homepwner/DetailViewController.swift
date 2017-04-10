@@ -31,7 +31,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         //just pick from photo library
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let overlayView = UIImageView()
-            
+            //put a crosshair onto the camera
             overlayView.image = #imageLiteral(resourceName: "Untitled-1")
             
             imagePicker.cameraOverlayView = overlayView
@@ -91,7 +91,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        //hide the back option until the name and value have been set
         if item.name == "" {
             navigationItem.setHidesBackButton(true, animated: true)
         }
@@ -162,6 +162,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
             let dateViewController = segue.destination as! DateViewController
             dateViewController.item = item
         case "cancel"?:
+            //canceling should remove the item that was created for this view
             let itemViewController = segue.destination as! ItemsViewController
             itemViewController.itemStore = itemStore
             itemViewController.imageStore = imageStore

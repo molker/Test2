@@ -13,7 +13,7 @@ class Item: NSObject, NSCoding {
     var valueInDollars: Int
     var serialNumber: String?
     var dateCreated: Date
-    var location: String?
+    var location: String
     let itemKey: String
     
     func encode( with aCoder: NSCoder) {
@@ -30,18 +30,18 @@ class Item: NSObject, NSCoding {
         dateCreated = aDecoder.decodeObject(forKey: "dateCreated") as! Date
         itemKey = aDecoder.decodeObject(forKey: "itemKey") as! String
         serialNumber = aDecoder.decodeObject(forKey: "serialNumber") as! String?
-        location = aDecoder.decodeObject(forKey: "location") as! String!
+        location = aDecoder.decodeObject(forKey: "location") as! String
         valueInDollars = aDecoder.decodeInteger(forKey: "valueInDollars")
         
         super.init()
     }
     
-    init(name: String, serialNumber: String?, valueInDollars: Int, dateCreated: Date) {
+    init(name: String, serialNumber: String?, valueInDollars: Int, dateCreated: Date, location: String) {
         self.name = name
         self.valueInDollars = valueInDollars
         self.serialNumber = serialNumber
         self.dateCreated = dateCreated
-        self.location = "bedroom"
+        self.location = location
         self.itemKey = UUID().uuidString
         
         super.init()

@@ -31,7 +31,7 @@ class ItemStore {
     }
     
     @discardableResult func createItem() -> Item {
-        let newItem = Item(name: "",serialNumber: "",valueInDollars: 0,dateCreated: Date.init())
+        let newItem = Item(name: "",serialNumber: "",valueInDollars: 0,dateCreated: Date.init(),location: "")
         
         allItems.append(newItem)
         
