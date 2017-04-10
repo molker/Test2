@@ -16,6 +16,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBOutlet var dateLabel: UILabel!
     
     @IBOutlet var imageView: UIImageView!
+
+    var initialValue: Any!
     
     @IBAction func takePicture(_ sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
@@ -67,17 +69,35 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     }
     var item: Item! {
         didSet {
-            navigationItem.title = item.name
+            if item.name == "" {
+                navigationItem.title = "Set a Name and Value"
+            } else {
+                navigationItem.title = item.name
+            }
+        }
+    }
+    @IBAction func textFieldChanged(_ sender: BorderedTextField) {
+        if nameField.text != "" && valueField.text != String(describing: initialValue!) {
+            navigationItem.setHidesBackButton(false, animated: true)
+        }
+        if nameField.text != "" {
+            navigationItem.title = nameField.text
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if item.name == "" {
+            navigationItem.setHidesBackButton(true, animated: true)
+        }
+        
         nameField.text = item.name
         serialNumberField.text = item.serialNumber
         valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
         dateLabel.text = dateFormatter.string(from: item.dateCreated)
+        
+        initialValue = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
         
         //Get the item key 
         let key = item.itemKey
@@ -90,6 +110,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        navigationItem.setHidesBackButton(false, animated: true)
         
         //Clear first responder
         view.endEditing(true)
@@ -130,6 +152,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         //if the triggered segue is the "showItem" segue
         switch segue.identifier {
         case "changeDate"?:
+            navigationItem.setHidesBackButton(false, animated: true)
             //Get the item associated with this row and pass it along
             let dateViewController = segue.destination as! DateViewController
             dateViewController.item = item

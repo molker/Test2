@@ -140,6 +140,25 @@ class ItemsViewController: UITableViewController {
                 detailViewController.item = item
                 detailViewController.imageStore = imageStore
             }
+            
+        case "newItem"?:
+            
+            //Create a new item and add it to the store
+            let newItem = itemStore.createItem()
+            
+            //Figure out where that item is in the array
+            if let index = itemStore.allItems.index(of: newItem) {
+                let indexPath = IndexPath(row: index, section: 0)
+                
+                //Insert this new row into the table
+                tableView.insertRows(at: [indexPath], with: .automatic)
+            }
+            
+            //Get the item associated with this row and pass it along
+            let item = itemStore.allItems[itemStore.allItems.index(of: newItem)!]
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.item = item
+            detailViewController.imageStore = imageStore
         default:
             preconditionFailure("Unexpected segue identifier.")
         }

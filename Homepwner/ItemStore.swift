@@ -31,6 +31,14 @@ class ItemStore {
     }
     
     @discardableResult func createItem() -> Item {
+        let newItem = Item(name: "",serialNumber: "",valueInDollars: 0,dateCreated: Date.init())
+        
+        allItems.append(newItem)
+        
+        return newItem
+    }
+    
+    @discardableResult func createRandomItem() -> Item {
         let newItem = Item(random: true)
         
         allItems.append(newItem)
