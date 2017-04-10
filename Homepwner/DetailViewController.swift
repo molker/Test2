@@ -20,9 +20,16 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBAction func takePicture(_ sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
         
+        
+        
         //If the device has a camera, take a picture; otherwise,
         //just pick from photo library
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let overlayView = UIImageView()
+            
+            overlayView.image = #imageLiteral(resourceName: "Untitled-1")
+            
+            imagePicker.cameraOverlayView = overlayView
             imagePicker.sourceType = .camera
             //imagePicker.cameraOverlayView
         } else {
