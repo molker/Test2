@@ -58,6 +58,7 @@ class ItemsViewController: UITableViewController {
             cell.nameLabel.text = item.name
             cell.serialNumberLabel.text = item.serialNumber
             cell.valueLabel.text = "$\(item.valueInDollars)"
+            cell.locationLabel.text = item.location
             if item.valueInDollars >= 50 {
                 cell.valueLabel.textColor = UIColor.red
             } else {
@@ -143,12 +144,18 @@ class ItemsViewController: UITableViewController {
             
         case "newItem"?:
             
+            let tempItemStore = self.itemStore
+            let tempImageStore = self.imageStore
             //Create a new item and add it to the store
             let newItem = itemStore.createItem()
+            
+            var indexPathForDetail: IndexPath!
             
             //Figure out where that item is in the array
             if let index = itemStore.allItems.index(of: newItem) {
                 let indexPath = IndexPath(row: index, section: 0)
+                
+                indexPathForDetail = indexPath
                 
                 //Insert this new row into the table
                 tableView.insertRows(at: [indexPath], with: .automatic)
@@ -158,7 +165,9 @@ class ItemsViewController: UITableViewController {
             let item = itemStore.allItems[itemStore.allItems.index(of: newItem)!]
             let detailViewController = segue.destination as! DetailViewController
             detailViewController.item = item
-            detailViewController.imageStore = imageStore
+            detailViewController.imageStore = tempImageStore
+            detailViewController.itemStore = tempItemStore
+            detailViewController.row = indexPathForDetail
         default:
             preconditionFailure("Unexpected segue identifier.")
         }

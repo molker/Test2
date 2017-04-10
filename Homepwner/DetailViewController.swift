@@ -14,10 +14,13 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBOutlet var serialNumberField: BorderedTextField!
     @IBOutlet var valueField: BorderedTextField!
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var locationLabel: UILabel!
     
     @IBOutlet var imageView: UIImageView!
 
     var initialValue: Any!
+    
+    var row: IndexPath!
     
     @IBAction func takePicture(_ sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
@@ -49,6 +52,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     }
     
     var imageStore: ImageStore!
+    var itemStore: ItemStore!
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
         //Get picked image form info dictionary 
@@ -96,6 +100,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         serialNumberField.text = item.serialNumber
         valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
         dateLabel.text = dateFormatter.string(from: item.dateCreated)
+        locationLabel.text = item.location
         
         initialValue = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
         
@@ -156,6 +161,23 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
             //Get the item associated with this row and pass it along
             let dateViewController = segue.destination as! DateViewController
             dateViewController.item = item
+        case "cancel"?:
+            let itemViewController = segue.destination as! ItemsViewController
+            itemViewController.itemStore = itemStore
+            itemViewController.imageStore = imageStore
+            
+            //Remove the item from the store
+            itemViewController.itemStore.removeItem(item)
+            
+            //Remove the item's image from the image store
+            itemViewController.imageStore.deleteImage(forKey: item.itemKey)
+            
+            //Also remove that row from the table view with an animation
+            itemViewController.tableView.deleteRows(at: [row], with: .automatic)
+
+        case "changeLocation"?:
+            let locationViewController = segue.destination as! LocationViewController
+            locationViewController.item = item
         default:
             preconditionFailure("Unexpected segue identifier.")
         }

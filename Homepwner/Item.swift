@@ -13,6 +13,7 @@ class Item: NSObject, NSCoding {
     var valueInDollars: Int
     var serialNumber: String?
     var dateCreated: Date
+    var location: String?
     let itemKey: String
     
     func encode( with aCoder: NSCoder) {
@@ -20,7 +21,7 @@ class Item: NSObject, NSCoding {
         aCoder.encode(dateCreated, forKey: "dateCreated")
         aCoder.encode(itemKey, forKey: "itemKey")
         aCoder.encode(serialNumber, forKey: "serialNumber")
-        
+        aCoder.encode(location, forKey: "location")
         aCoder.encode(valueInDollars, forKey: "valueInDollars")
     }
     
@@ -29,7 +30,7 @@ class Item: NSObject, NSCoding {
         dateCreated = aDecoder.decodeObject(forKey: "dateCreated") as! Date
         itemKey = aDecoder.decodeObject(forKey: "itemKey") as! String
         serialNumber = aDecoder.decodeObject(forKey: "serialNumber") as! String?
-        
+        location = aDecoder.decodeObject(forKey: "location") as! String!
         valueInDollars = aDecoder.decodeInteger(forKey: "valueInDollars")
         
         super.init()
@@ -40,32 +41,9 @@ class Item: NSObject, NSCoding {
         self.valueInDollars = valueInDollars
         self.serialNumber = serialNumber
         self.dateCreated = dateCreated
+        self.location = "bedroom"
         self.itemKey = UUID().uuidString
         
         super.init()
-    }
-    
-    convenience init(random: Bool = false) {
-        if random {
-            let adjectives = ["Fluffy", "Rusty", "Shiny"]
-            let nouns = ["Bear", "Spork", "Mac"]
-            
-            var idx = arc4random_uniform(UInt32(adjectives.count))
-            let randomAdjective = adjectives[Int(idx)]
-            
-            idx = arc4random_uniform(UInt32(nouns.count))
-            let randomNoun = nouns[Int(idx)]
-            
-            let randomName = "\(randomAdjective) \(randomNoun)"
-            let randomValue = Int(arc4random_uniform(100))
-            let randomSerialNumber = UUID().uuidString.components(separatedBy: "-").first!
-            
-            self.init(name: randomName,
-                      serialNumber: randomSerialNumber,
-                      valueInDollars: randomValue,
-                      dateCreated: Date())
-        } else {
-            self.init(name: "", serialNumber: nil, valueInDollars: 0, dateCreated: Date())
-        }
     }
 }

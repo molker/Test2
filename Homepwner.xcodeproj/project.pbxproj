@@ -12,6 +12,7 @@
 		8677D9081E8974DC00893E9D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8677D9071E8974DC00893E9D /* DetailViewController.swift */; };
 		8677D90A1E897DE000893E9D /* BorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8677D9091E897DE000893E9D /* BorderedTextField.swift */; };
 		8677D90C1E89825700893E9D /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8677D90B1E89825700893E9D /* DateViewController.swift */; };
+		8686E54B1E9B4204005C6570 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8686E54A1E9B4204005C6570 /* LocationViewController.swift */; };
 		86B00F301E761D8C005D5670 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B00F2F1E761D8C005D5670 /* AppDelegate.swift */; };
 		86B00F351E761D8D005D5670 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86B00F331E761D8D005D5670 /* Main.storyboard */; };
 		86B00F371E761D8D005D5670 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86B00F361E761D8D005D5670 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		8677D9071E8974DC00893E9D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8677D9091E897DE000893E9D /* BorderedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedTextField.swift; sourceTree = "<group>"; };
 		8677D90B1E89825700893E9D /* DateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
+		8686E54A1E9B4204005C6570 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationViewController.swift; path = ../LocationViewController.swift; sourceTree = "<group>"; };
 		86B00F2C1E761D8C005D5670 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B00F2F1E761D8C005D5670 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86B00F341E761D8D005D5670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				8677D90B1E89825700893E9D /* DateViewController.swift */,
 				8677D9071E8974DC00893E9D /* DetailViewController.swift */,
 				8677D9091E897DE000893E9D /* BorderedTextField.swift */,
+				8686E54A1E9B4204005C6570 /* LocationViewController.swift */,
 				86B00F361E761D8D005D5670 /* Assets.xcassets */,
 				86B00F3B1E761D8D005D5670 /* Info.plist */,
 				86B00F411E761DDC005D5670 /* ItemsViewController.swift */,
@@ -159,6 +162,7 @@
 				86B00F421E761DDC005D5670 /* ItemsViewController.swift in Sources */,
 				86B00F441E761F67005D5670 /* Item.swift in Sources */,
 				8677D9081E8974DC00893E9D /* DetailViewController.swift in Sources */,
+				8686E54B1E9B4204005C6570 /* LocationViewController.swift in Sources */,
 				860803E01E8C1E490065E683 /* ImageStore.swift in Sources */,
 				86B00F461E7621C5005D5670 /* ItemStore.swift in Sources */,
 				8677D90A1E897DE000893E9D /* BorderedTextField.swift in Sources */,
